@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/ponyfun/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/ponyfun/static/js/main.9d1efdb3.chunk.js",
-    "main.js.map": "/ponyfun/static/js/main.9d1efdb3.chunk.js.map",
+    "main.css": "/ponyfun/static/css/main.513651c9.chunk.css",
+    "main.js": "/ponyfun/static/js/main.0dad965a.chunk.js",
+    "main.js.map": "/ponyfun/static/js/main.0dad965a.chunk.js.map",
     "runtime-main.js": "/ponyfun/static/js/runtime-main.ba31f59d.js",
     "runtime-main.js.map": "/ponyfun/static/js/runtime-main.ba31f59d.js.map",
     "static/js/2.d0e44e1c.chunk.js": "/ponyfun/static/js/2.d0e44e1c.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.b507637a.chunk.js": "/ponyfun/static/js/3.b507637a.chunk.js",
     "static/js/3.b507637a.chunk.js.map": "/ponyfun/static/js/3.b507637a.chunk.js.map",
     "index.html": "/ponyfun/index.html",
-    "static/css/main.8c8b27cf.chunk.css.map": "/ponyfun/static/css/main.8c8b27cf.chunk.css.map",
+    "static/css/main.513651c9.chunk.css.map": "/ponyfun/static/css/main.513651c9.chunk.css.map",
     "static/js/2.d0e44e1c.chunk.js.LICENSE.txt": "/ponyfun/static/js/2.d0e44e1c.chunk.js.LICENSE.txt",
     "static/media/logo.6ce24c58.svg": "/ponyfun/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.ba31f59d.js",
     "static/js/2.d0e44e1c.chunk.js",
-    "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.9d1efdb3.chunk.js"
+    "static/css/main.513651c9.chunk.css",
+    "static/js/main.0dad965a.chunk.js"
   ]
 }
