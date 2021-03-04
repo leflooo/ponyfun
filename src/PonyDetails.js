@@ -1,14 +1,28 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle, faTimes, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 class PonyDetails extends React.Component {
+    
     constructor(props) {
       super(props);
-      this.state = props.currentContact;
+      this.state = {
+        props: props.currentContact,
+        errors: {
+          name: "",
+          note: ""
+        }
+      }
     }
     
     componentWillReceiveProps(nextProps) {
       this.setState(nextProps.currentContact);
     }
+
+    shouldComponentUpdate(nextProps) {
+      return true;
+    }
+
     
     handleInputChange(e) {
       this.setState({
@@ -23,79 +37,150 @@ class PonyDetails extends React.Component {
     
     deleteContact(e) {
       e.preventDefault();
-      this.props.deleteContact(this.props.currentContact);
+      if(window.confirm(this.props.currentContact.name +" wirklich löschen?")){
+        this.props.deleteContact(this.props.currentContact);
+        this.close(e);
+      }
     }
+
+
+    handleValidation(){
+      let fields = this.state;
+      let errors = {};
+      let formIsValid = true;
+
+      //Name
+      if(!fields["name"]){
+         formIsValid = false;
+         errors["name"] = "Bitte ausfüllen!";
+      }
+
+ 
+      //Email
+      if(fields["note"].length > 39){
+         formIsValid = false;
+         errors["note"] = "zu viele Zeichen!";
+      }
+
+
+        this.setState({errors: errors});
+        return formIsValid;
+    }
+
+
     
     addOrUpdateContact(e) {
       e.preventDefault();
-      this.props.addOrUpdateContact(this.state);
+      if(this.handleValidation()){
+        this.props.addOrUpdateContact(this.state);
+        this.close(e);
+      }
+    }
+
+    close(e) {
+      e.preventDefault()
+
+      if (this.props.onClose) {
+        this.props.onClose()
+      }
     }
     
     render() {
-      return <div className="detail">
-        <div>
-          <h3>{this.props.currentContact.id ? 'Kontakt Details' : 'Neuen Kontakt anlegen'}</h3>
+      if (this.props.isOpen === false)
+        return null
+
+
+      return (<div>
+      <div className="detail">
+        
+
+        <div className="header">
+          <h4>{this.props.currentContact.uid ? 'Pferdedaten' : 'Neues Pferd anlegen'}</h4>
+          
+          <FontAwesomeIcon onClick={(e) => this.close(e)} className="close" icon={ faTimes } color="grey" transform="grow-6"/>
           
         </div>
 
         <form onSubmit={(e) => this.addOrUpdateContact(e)}>
         
-          <div className="form-group">
-            <label htmlFor="Name">Name:</label>
+          <div className="task-input">
+            <label htmlFor="name">Name:</label>
             <input 
               type="text"
-              id="Name"
-              name="Name"
-              value={this.state.Name} 
+              id="name"
+              name="name"
+              value={this.state.name} 
               //disabled = {this.state.id}
               onChange={(e) => this.handleInputChange(e)}
-              ref={input => input && input.value === "" && input.focus()}
+              //ref={input => input && input.value === "" && input.focus()}
             />
-          </div>
-          <div className="form-group">
-            <label htmlFor="Phone">Tel.Nr.:</label>
-            <input 
-              type="text"
-              id="Phone"
-              name="Phone"
-              value={this.state.Phone} 
-              onChange={(e) => this.handleInputChange(e)} 
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="Email">Email:</label>
-            <input 
-              type="text"
-              id="Email"
-              name="Email"
-              value={this.state.Email} 
-              onChange={(e) => this.handleInputChange(e)} 
-            />
-          </div>
+            <span style={{color: "red"}}>{this.state.errors["name"]}</span>
+          </div>         
 
-          <div className="form-group">
-            <label htmlFor="Adresse">Adresse:</label>
-            <input 
-              type="text"
-              id="Adresse"
-              name="Adresse"
-              value={this.state.Adresse} 
-              onChange={(e) => this.handleInputChange(e)} 
-            />
+          <div className="select-wrapper">
+            <label htmlFor="position">Box Standort:</label>
+
+            <select id="position" name="position" value={this.state.position} onChange={(e) => this.handleInputChange(e)}>
+              <option value="EG">EG</option>
+              <option value="1.Stock">1.Stock</option>
+              <option value="Z.Stall">Z.Stall</option>
+            </select>
           </div>
           <br/>
-          <div className="action">
-            <input type="submit" className="btn" value={this.props.currentContact.id ? 'Ändern' : 'Speichern'} />
-            { this.props.currentContact.id &&
+          <br/>
+          <div className="picker">
+            <fieldset>
+              <legend>Raus?</legend>
+
+                <label>Ja:</label>
+                <input className="task-status" name="outorin" type="radio" value="1" defaultChecked={this.state.outorin === "1"} onChange={(e) => this.handleInputChange(e)}></input>
+                <label>Nein:</label>
+                <input className="task-status" name="outorin" type="radio" value="2" defaultChecked={this.state.outorin === "2"} onChange={(e) => this.handleInputChange(e)}></input>
+                <label>Egal:</label>
+                <input className="task-status" name="outorin" type="radio" value="0" defaultChecked={this.state.outorin === "0"} onChange={(e) => this.handleInputChange(e)}></input>
+            </fieldset>            
+          </div>
+          
+
+          <div className="task-input">
+            <label htmlFor="note">Notiz:</label>
+            <input 
+              type="text"
+              id="note"
+              name="note"
+              value={this.state.note} 
+              onChange={(e) => this.handleInputChange(e)} 
+            />
+            <span style={{color: "red"}}>{this.state.errors["note"]}</span>
+          </div>
+          <div className="task-count">
+            <label htmlFor="status">{this.state.status}</label>            
+          </div>
+
+          <br/>
+          <div className="action picker">
+            { this.props.currentContact.uid &&
               <button href="#" 
-                className="btn" 
+                className="btn delete" 
                 onClick={(e) => this.deleteContact(e)}
-              >Löschen</button>
+              >
+                <FontAwesomeIcon icon={ faTrashAlt } transform="grow-4"/>
+          
+                &nbsp;Löschen
+                
+                </button>
             }
+            <button type="submit" className="btn right save">
+            <FontAwesomeIcon icon={ faCheckCircle } transform="grow-4"/>
+            &nbsp;Speichern
+              </button>
           </div>
           
         </form>
       </div>
+      <div className="bg" onClick={e => this.close(e)}/>
+      </div>
+          )
     }
   }
 

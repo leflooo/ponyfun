@@ -4,7 +4,7 @@ import './App.scss';
 import PonyList from './PonyList';
 
 const conf = {
-    Url: 'http://localhost:3000/contacts'
+    Url: 'https://ju6w4ca8tc.execute-api.eu-central-1.amazonaws.com/default/myHorseFun'
   };
 
 ReactDOM.render(<PonyList config={conf} />, document.getElementById('root'));
