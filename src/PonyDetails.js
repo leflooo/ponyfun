@@ -57,7 +57,7 @@ class PonyDetails extends React.Component {
 
  
       //Email
-      if(fields["note"].length > 39){
+      if(fields["note"].length > 35){
          formIsValid = false;
          errors["note"] = "zu viele Zeichen!";
       }
