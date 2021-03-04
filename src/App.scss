@@ -16,7 +16,7 @@ body {
   flex-direction: column;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 20px;
+  padding: 2%;
   height: 40vh;
   overflow: hidden;
   z-index: 300;
@@ -24,6 +24,7 @@ body {
 
 .app {
   max-width: 400px;
+  min-width: 332px;
   width: 100%;
   margin: auto;
   background-color: #fff;
@@ -47,7 +48,8 @@ body {
   margin: auto;
   padding: 20px;
   overflow: hidden;
-  max-width: 400px;
+  max-width: 410px;
+  min-width: 265px;
   width: auto;
   font-family: var(--font);
   box-shadow: 0 20px 80px rgba(0,0,0,.3);
