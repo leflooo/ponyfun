@@ -72,6 +72,10 @@ class PonyDetails extends React.Component {
     addOrUpdateContact(e) {
       e.preventDefault();
       if(this.handleValidation()){
+        if(!this.state.outorin)
+          this.state.outorin = "0";
+        if(!this.state.position)
+          this.state.position = "EG";
         this.props.addOrUpdateContact(this.state);
         this.close(e);
       }
