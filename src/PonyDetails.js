@@ -123,7 +123,7 @@ class PonyDetails extends React.Component {
             <select id="position" name="position" value={this.state.position} onChange={(e) => this.handleInputChange(e)}>
               <option value="EG">EG</option>
               <option value="1.Stock">1.Stock</option>
-              <option value="Z.Stall">Z.Stall</option>
+              <option value="Lisa Stall">Lisa Stall</option>
             </select>
           </div>
           <br/>
