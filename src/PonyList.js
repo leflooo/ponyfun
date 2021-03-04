@@ -206,8 +206,7 @@ class PonyList extends React.Component {
               </div>
             </div>
 
-          <div className="task-list">
-            {this.state.contacts.length ? '' : 'Keine Einträge gefunden.'}
+          <div className="task-list">            
           
               {this.state.contacts.filter(c =>  this.state.filter.includes(c.outorin.toString()))
               .sort((a , b) => this.sortinga(a , b))
