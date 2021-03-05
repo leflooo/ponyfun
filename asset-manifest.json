@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ponyfun/static/css/main.44e96267.chunk.css",
-    "main.js": "/ponyfun/static/js/main.d92d958b.chunk.js",
-    "main.js.map": "/ponyfun/static/js/main.d92d958b.chunk.js.map",
-    "runtime-main.js": "/ponyfun/static/js/runtime-main.05fd67ba.js",
-    "runtime-main.js.map": "/ponyfun/static/js/runtime-main.05fd67ba.js.map",
-    "static/js/2.21594ac0.chunk.js": "/ponyfun/static/js/2.21594ac0.chunk.js",
-    "static/js/2.21594ac0.chunk.js.map": "/ponyfun/static/js/2.21594ac0.chunk.js.map",
-    "index.html": "/ponyfun/index.html",
-    "static/css/main.44e96267.chunk.css.map": "/ponyfun/static/css/main.44e96267.chunk.css.map",
-    "static/js/2.21594ac0.chunk.js.LICENSE.txt": "/ponyfun/static/js/2.21594ac0.chunk.js.LICENSE.txt"
+    "main.css": "/static/css/main.44e96267.chunk.css",
+    "main.js": "/static/js/main.d92d958b.chunk.js",
+    "main.js.map": "/static/js/main.d92d958b.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.05fd67ba.js",
+    "runtime-main.js.map": "/static/js/runtime-main.05fd67ba.js.map",
+    "static/js/2.21594ac0.chunk.js": "/static/js/2.21594ac0.chunk.js",
+    "static/js/2.21594ac0.chunk.js.map": "/static/js/2.21594ac0.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.44e96267.chunk.css.map": "/static/css/main.44e96267.chunk.css.map",
+    "static/js/2.21594ac0.chunk.js.LICENSE.txt": "/static/js/2.21594ac0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.05fd67ba.js",
